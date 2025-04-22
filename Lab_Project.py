@@ -87,18 +87,3 @@ if st.button("Predict Stock Price"):
     
     st.line_chart(stock_data["Close"])
     
-    # Additional Insights
-    if st.checkbox("Show Raw Data"):
-        st.write(stock_data)
-    
-    if st.checkbox("Show Moving Averages"):
-        stock_data["10-Day MA"] = calculate_moving_average(stock_data, 10)
-        stock_data["50-Day MA"] = calculate_moving_average(stock_data, 50)
-        st.line_chart(stock_data[["Close", "10-Day MA", "50-Day MA"]])
-    
-    if st.checkbox("Show Volatility Analysis"):
-        stock_data["Volatility"] = calculate_volatility(stock_data)
-        st.line_chart(stock_data["Volatility"])
-    
-    if st.checkbox("Show Volume Analysis"):
-        st.line_chart(stock_data["Volume"])
